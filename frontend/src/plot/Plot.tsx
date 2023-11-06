@@ -17,17 +17,11 @@ export const Plot = ({
   height,
   data = irisData.TrainX.map((item) => item.map((item2) => item2)),
 }: PlotProps) => {
-  // Layout. The div size is set by the given props.
-  // The bounds (=area inside the axis) is calculated by substracting the marginss
-
   const boundsWidth = width - (margins.right + margins.left);
   const boundsHeight = height - (margins.top + margins.bottom);
-
   const [xAxisMeasure, setXAxisMeasure] = useState<number>(1);
   const [yAxisMeasure, setYAxisMeasure] = useState<number>(0);
   const [hovered, setHovered] = useState<InteractionData | null>(null);
-
-  // Scales
 
   const selectVariable = useSelectVariable({
     xAxisMeasure,
@@ -35,6 +29,7 @@ export const Plot = ({
     setYAxisMeasure,
     yAxisMeasure,
   });
+
   const { xScale, yScale } = useScales({
     boundsHeight,
     boundsWidth,
@@ -42,7 +37,7 @@ export const Plot = ({
     xAxisMeasure,
     data,
   });
-  // Render the X and Y axis using d3.js, not react
+
   const axesRef = useAxes({
     boundsHeight,
     boundsWidth,
