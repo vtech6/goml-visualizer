@@ -1,19 +1,21 @@
-# README
+# goml-visualizer
 
-## About
+<b>Goml Visualizer (in progress): </b><br><br>
+![goml-visualizer](https://github.com/vtech6/goml/blob/main/visualizer.gif) <br><br>
+The Goml Visualizer was written using [Wails](https://wails.io) with React in Typescript for the frontend. The gif above is from an early version of the visualizer that shows the dataset after BinaryClassification.<br><br>
+<b>Roadmap:</b>
+- Run the goml package from the UI
+- Track progress of the training
+- Show correct and erroneous predictions
+- Compare training and test datasets<br>
 
-This is the official Wails React-TS template.
-
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
-
-## Live Development
-
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
-
-## Building
-
-To build a redistributable, production mode package, use `wails build`.
+<b>How to run</b>
+- Make sure you have a valid Go installation by running `go version`
+- Clone the repo
+- Run with `go mod tidy`
+- Run `wails doctor` to check if everything is fine with your installation
+- `wails dev` will start a dev session of the app
+- Alternatively, you can do `cd frontend`, then `npm install` and `npm run dev` to run the app in the browser. It won't look as good, because the browser window isn't translucent.
+<br><b>Stack</b>
+- Backend: Go + [Wails](https://wails.io)
+- Frontend: Typescript + React + Redux + D3
