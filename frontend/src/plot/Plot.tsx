@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import * as irisData from "../IrirsOutput.json";
+import * as irisData from "../IrisOutput.json";
 
 import useAxes from "../hooks/useAxes";
 import useScales from "../hooks/useScales";

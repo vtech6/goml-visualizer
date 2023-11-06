@@ -2,7 +2,7 @@ import { Dispatch, useMemo } from "react";
 import useColorScale from "../hooks/useColorScales";
 import { labels } from "../plot/constants";
 import style from "./shapes.module.css";
-import * as irisData from "../IrirsOutput.json";
+import * as irisData from "../IrisOutput.json";
 import { InteractionData } from "../tooltip/types";
 const useShapes = ({
   xScale,

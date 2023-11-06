@@ -1,8 +1,11 @@
-module changeme
+module goml-visualizer
 
-go 1.18
+go 1.21.3
 
-require github.com/wailsapp/wails/v2 v2.6.0
+require (
+	github.com/vtech6/goml v0.0.0-20231106155534-765bd4bc4871
+	github.com/wailsapp/wails/v2 v2.6.0
+)
 
 require (
 	github.com/bep/debounce v1.2.1 // indirect

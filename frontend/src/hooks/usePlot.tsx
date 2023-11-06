@@ -2,7 +2,7 @@ import { Dispatch, useCallback, useMemo } from "react";
 import { Tooltip } from "../tooltip/Tooltip";
 import { measureLabels, margins } from "../plot/constants";
 import { InteractionData } from "../tooltip/types";
-
+import style from "../plot/plot.module.css";
 const usePlot = ({
   axesRef,
   boundsHeight,
@@ -37,7 +37,9 @@ const usePlot = ({
           </div>
           {measureLabels.map((item, index) => (
             <div
-              style={{ color: currentAxis === index ? "blue" : "black" }}
+              className={
+                currentAxis === index ? style.selected : style.notSelected
+              }
               onClick={() => selectVariable(axis, index)}
             >
               {item}

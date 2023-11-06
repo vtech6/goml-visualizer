@@ -1,13 +1,13 @@
 {
   "$schema": "https://wails.io/schemas/config.v2.json",
-  "name": "goml-visualizer1",
-  "outputfilename": "goml-visualizer1",
+  "name": "goml-visualizer",
+  "outputfilename": "goml-visualizer",
   "frontend:install": "npm install",
   "frontend:build": "npm run build",
   "frontend:dev:watcher": "npm run dev",
   "frontend:dev:serverUrl": "auto",
   "author": {
     "name": "Mikolaj Witkowski",
-    "email": "mikolaj.witkowski@welld.ch"
+    "email": "mikolaj.a.witkowski@gmail.com"
   }
 }

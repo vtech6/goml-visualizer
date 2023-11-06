@@ -1,0 +1,23 @@
+.notSelected {
+  color: white;
+}
+.selected {
+  color: #e95793;
+  cursor: pointer;
+}
+.label {
+  color: white;
+  fill: white;
+}
+@media (prefers-color-scheme: light) {
+  .label {
+    color: black;
+  }
+  .notSelected {
+    color: black;
+  }
+  .selected {
+    color: #e95793;
+    cursor: pointer;
+  }
+}
