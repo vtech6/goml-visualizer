@@ -58,7 +58,7 @@ export const Plot = ({
     xScale,
     yScale,
   });
-  // Build the shapes
+
   const content = usePlot({
     axesRef,
     boundsHeight,
