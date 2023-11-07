@@ -21,7 +21,7 @@ const useColorScale = ({
       d3
         .scaleOrdinal<string>()
         .domain(groups)
-        .range(["#f8a6a6", "#AEDEFC", "#8E8FFA"]),
+        .range(["#940B92", "#DA0C81", "#F99417"]),
     [groups]
   );
   return colorScale;

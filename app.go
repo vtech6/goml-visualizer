@@ -2,8 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
-	"os"
+	"math/rand"
 
 	"github.com/vtech6/goml/lib/network"
 )
@@ -24,22 +23,16 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
-// Greet returns a greeting for the given name
-func (a *App) Greet(name string) string {
-	return fmt.Sprintf("Hello %s, It's show time!", name)
+type SavedData struct {
+	Data *network.SavedData `json:"savedData"`
 }
-type someJson struct {
-	File *os.File `json:"file"`
+func (a *App) BinaryCrossentropy()SavedData{
+	rand.Seed(42)
+	savedData := network.BinaryClassification()
+	return SavedData{Data: savedData}
 }
-func (a *App) RunNetwork()someJson{
-	network.Run()
-	jsonFile, err := os.Open("IrisOutput.json")
-	// if we os.Open returns an error then handle it
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// defer the closing of our jsonFile so that we can parse it later on
-	defer jsonFile.Close()
-	return someJson{File: jsonFile}
+func (a *App)Regression()SavedData{
+	rand.Seed(42)
+	savedData := network.Regression()
+	return SavedData{Data: savedData}
 }

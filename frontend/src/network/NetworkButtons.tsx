@@ -1,37 +1,65 @@
-import useDataSelector from "../store/selectors/useDataSelector";
-import * as goml from "../../wailsjs/go/main/App";
-
 import useUpdateData from "../store/dispatch/useUpdateData";
 import { NetworkData } from "../store/slices/dataSlice";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
+import { ModelNames } from "./model";
+import { callModel } from "./utils";
+import styles from "./buttons.module.css";
 const NetworkButtons = () => {
-  const [runn, setRunn] = useState(false);
-  const data = useDataSelector();
+  const [processing, setProcessing] = useState<ModelNames | null>(null);
   const update = useUpdateData();
-  const runN = async () => {
-    setRunn(true);
-    const data = await goml.RunNetwork();
-    update(JSON.parse(data.file) as NetworkData);
-    setRunn(false);
-  };
+
+  const runModel = useCallback(
+    async (name: ModelNames) => {
+      if (processing !== null) {
+        return;
+      }
+      setProcessing(name);
+      const { savedData: data } = await callModel(name);
+      const networkData: NetworkData = data;
+      update(networkData);
+      setProcessing(null);
+    },
+    [processing, update]
+  );
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      {[ModelNames.BC, ModelNames.REG].map((modelName) => (
+        <>
+          <div
+            className={styles.textButton}
+            onClick={() => runModel(modelName)}
+          >
+            {!(processing === modelName) ? modelName : "Running"}
+          </div>
+          <div style={{ width: "16px" }} />
+        </>
+      ))}
       <div
-        style={{ height: 100, width: 100, backgroundColor: "red" }}
-        onClick={runN}
+        className={styles.textButton}
+        onClick={() => fileInputRef.current?.click()}
       >
-        {`${data}`}
+        {"Select File To Upload"}
       </div>
-      <div
-        style={{
-          height: 100,
-          width: 100,
-          backgroundColor: data === null ? "blue" : "yellow",
+      <input
+        type={"file"}
+        onChange={(event) => {
+          const file = new FileReader();
+          if (event.target.files?.[0] != undefined) {
+            file.readAsText(event.target.files?.[0], "UTF-8");
+            file.onload = (e) => {
+              const result = JSON.parse(e.target?.result as string);
+              const networkData: NetworkData = result;
+              update(networkData);
+            };
+          }
         }}
-      >
-        {`${data} ${runn}`}
-      </div>
+        ref={fileInputRef}
+        style={{
+          display: "none",
+        }}
+      />
     </div>
   );
 };

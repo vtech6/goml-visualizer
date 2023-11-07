@@ -5,6 +5,6 @@ const measureLabels = [
   "Petal Length",
   "Petal Width",
 ];
-const labels = ["Setosa", "Virginica", "The other"];
+const labels = ["Setosa", "Versicolor", "Virginica"];
 
 export { margins, measureLabels, labels };

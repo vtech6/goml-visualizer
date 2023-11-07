@@ -3,7 +3,7 @@ module goml-visualizer
 go 1.21.3
 
 require (
-	github.com/vtech6/goml v0.0.0-20231106155534-765bd4bc4871
+	github.com/vtech6/goml v0.0.0-20231107142152-f406ffb5cce2
 	github.com/wailsapp/wails/v2 v2.6.0
 )
 

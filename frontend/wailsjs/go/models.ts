@@ -1,16 +1,16 @@
 export namespace main {
 	
-	export class someJson {
-	    // Go type: os
-	    file?: any;
+	export class SavedData {
+	    // Go type: network
+	    savedData?: any;
 	
 	    static createFrom(source: any = {}) {
-	        return new someJson(source);
+	        return new SavedData(source);
 	    }
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
-	        this.file = this.convertValues(source["file"], null);
+	        this.savedData = this.convertValues(source["savedData"], null);
 	    }
 	
 		convertValues(a: any, classs: any, asMap: boolean = false): any {

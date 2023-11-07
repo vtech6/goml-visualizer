@@ -1,5 +1,6 @@
 .notSelected {
   color: white;
+  cursor: pointer;
 }
 .selected {
   color: #e95793;
@@ -15,6 +16,7 @@
   }
   .notSelected {
     color: black;
+    cursor: pointer;
   }
   .selected {
     color: #e95793;

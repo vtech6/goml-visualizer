@@ -1,0 +1,12 @@
+.textButton {
+  color: white;
+  cursor: pointer;
+}
+.textButton:hover {
+  color: #e95793;
+}
+@media (prefers-color-scheme: light) {
+  .textButton {
+    color: black;
+  }
+}

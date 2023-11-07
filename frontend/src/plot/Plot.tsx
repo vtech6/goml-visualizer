@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import * as irisData from "../IrisOutput.json";
-
 import useAxes from "../hooks/useAxes";
 import useScales from "../hooks/useScales";
 import useSelectVariable from "../hooks/useSelectVariable";
@@ -12,17 +10,12 @@ import { InteractionData } from "../tooltip/types";
 import { margins } from "./constants";
 import { PlotProps } from "./types";
 
-export const Plot = ({
-  width,
-  height,
-  data = irisData.TrainX.map((item) => item.map((item2) => item2)),
-}: PlotProps) => {
-  const boundsWidth = width - (margins.right + margins.left);
-  const boundsHeight = height - (margins.top + margins.bottom);
+export const Plot = ({ width, height }: PlotProps) => {
   const [xAxisMeasure, setXAxisMeasure] = useState<number>(1);
   const [yAxisMeasure, setYAxisMeasure] = useState<number>(0);
   const [hovered, setHovered] = useState<InteractionData | null>(null);
-
+  const boundsWidth = width - (margins.right + margins.left);
+  const boundsHeight = height - (margins.top + margins.bottom);
   const selectVariable = useSelectVariable({
     xAxisMeasure,
     setXAxisMeasure,
@@ -35,7 +28,6 @@ export const Plot = ({
     boundsWidth,
     yAxisMeasure,
     xAxisMeasure,
-    data,
   });
 
   const axesRef = useAxes({
@@ -54,7 +46,7 @@ export const Plot = ({
     boundsWidth,
     xAxisMeasure,
     yAxisMeasure,
-    data,
+
     xScale,
     yScale,
   });

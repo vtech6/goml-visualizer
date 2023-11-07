@@ -1,7 +1,8 @@
 export type InteractionData = {
   xPos: number;
   yPos: number;
-  name: string;
+  target: string;
+  predicted: string;
 };
 
 export type TooltipProps = {
