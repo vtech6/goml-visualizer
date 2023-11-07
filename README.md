@@ -1,7 +1,7 @@
 # goml-visualizer
 <b>goml-visualizer (in progress): </b><br><br>
 ![goml-visualizer](https://github.com/vtech6/goml/blob/main/visualizer.gif) <br><br>
-The goml-visualizer is a companion app for my [goml - Neural Networks from Scratch in Go](https://github.com/vtech6/goml) repo. Using Go with [Wails](https://wails.io) and React allows us to build beautiful cross-platform apps, which can run both locally on Windows and MacOS as well as in the browser. The gif above is from an early version of the visualizer that shows the dataset after BinaryClassification.<br><br>
+The goml-visualizer is a companion app for my [goml - Neural Networks from Scratch in Go](https://github.com/vtech6/goml) repo. Using Go with [Wails](https://wails.io) and React allows us to build beautiful cross-platform apps, which can run both locally on Windows and MacOS as well as in the browser. The gif above is from an early version of the visualizer that shows the dataset after Regression.<br><br>
 <b>Stack</b>
 - Backend: Go + [Wails](https://wails.io)
 - Frontend: Typescript + React + Redux + D3
