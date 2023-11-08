@@ -3,6 +3,7 @@ export type InteractionData = {
   yPos: number;
   target: string;
   predicted: string;
+  value?: number;
 };
 
 export type TooltipProps = {

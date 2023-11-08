@@ -15,22 +15,22 @@ const useScales = ({
   yAxisMeasure: number;
 }) => {
   const networkOutput = useDataSelector();
-  const trainX = useMemo(() => networkOutput!.TrainX, [networkOutput]);
+  const x = useMemo(() => networkOutput!.TrainX, [networkOutput]);
   const yScale = useMemo(() => {
-    const [min, max] = d3.extent(trainX.map((d) => d[xAxisMeasure])) as [
+    const [min, max] = d3.extent(x.map((d) => d[xAxisMeasure])) as [
       number,
       number
     ];
     return d3.scaleLinear().domain([min, max]).range([boundsHeight, 0]).nice();
-  }, [boundsHeight, trainX, xAxisMeasure]);
+  }, [boundsHeight, x, xAxisMeasure]);
 
   const xScale = useMemo(() => {
-    const [min, max] = d3.extent(trainX.map((d) => d[yAxisMeasure])) as [
+    const [min, max] = d3.extent(x.map((d) => d[yAxisMeasure])) as [
       number,
       number
     ];
     return d3.scaleLinear().domain([min, max]).range([0, boundsWidth]).nice();
-  }, [boundsWidth, trainX, yAxisMeasure]);
+  }, [boundsWidth, x, yAxisMeasure]);
 
   return {
     xScale,

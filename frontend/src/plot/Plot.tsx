@@ -46,7 +46,6 @@ export const Plot = ({ width, height }: PlotProps) => {
     boundsWidth,
     xAxisMeasure,
     yAxisMeasure,
-
     xScale,
     yScale,
   });

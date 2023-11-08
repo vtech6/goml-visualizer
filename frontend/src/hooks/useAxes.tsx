@@ -6,7 +6,6 @@ const useAxes = ({
   yScale,
   boundsHeight,
   boundsWidth,
-
   yAxisMeasure,
   xAxisMeasure,
 }: {

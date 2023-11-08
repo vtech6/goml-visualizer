@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import dataReducer from "../store/slices/dataSlice";
+import dataSlice from "../store/slices/dataSlice";
+import modeSlice from "./slices/modeSlice";
 const reducers = {
-  [dataReducer.name]: dataReducer.reducer,
+  [dataSlice.name]: dataSlice.reducer,
+  [modeSlice.name]: modeSlice.reducer,
 };
 
 const store = configureStore({
